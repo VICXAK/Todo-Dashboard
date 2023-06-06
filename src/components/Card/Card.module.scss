@@ -1,0 +1,31 @@
+.card {
+  background-color: #f0f0f3;
+  box-shadow: -2.17893px -2.17893px 6.5368px #ffffff,
+    2.17893px 2.17893px 6.5368px rgba(174, 174, 192, 0.4);
+  border-radius: 21.3535px;
+  padding: 20px;
+  width: 100%;
+
+  @media (max-width: 1000px) {
+    width: 70%;
+  }
+
+  h1 {
+    color: #745ff2;
+    text-transform: capitalize;
+    font-size: 40px;
+    border-bottom: 3px solid #745ff2;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+    @media (max-width: 1000px) {
+      font-size: 30px;
+    }
+  }
+
+  & > ul {
+    height: 300px;
+    overflow-y: auto;
+    position: relative;
+  }
+}

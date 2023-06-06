@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-family: Outfit, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+html {
+  height: 100%;
+}
+
+ul li {
+  list-style: none;
+  padding: 0;
+}
+
+body {
+  background-color: #e5e5e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 100vh;
+  width: 100%;
+}
+
+body > #root {
+  width: 100%;
+}

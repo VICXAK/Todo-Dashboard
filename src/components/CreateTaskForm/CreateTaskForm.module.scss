@@ -1,0 +1,56 @@
+.add-task {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  bottom: 0;
+  form {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  input {
+    border-radius: 10px;
+    border: none;
+    box-shadow: inset -1px -1px 1px rgba(255, 255, 255, 0.7),
+      inset 1px 2px 6px rgb(0 0 0 / 20%);
+    background-color: #eeeeee;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    box-shadow: -1px -1px 3px #ffffff, 1.5px 1.5px 3px rgba(174, 174, 192, 0.4);
+    cursor: pointer;
+    color: #c590ef;
+    padding: 5px;
+    font-size: 20px;
+
+    &:active {
+      box-shadow: inset -1px -1px 1px rgba(255, 255, 255, 0.7),
+        inset 1px 0px 6px rgb(0 0 0 / 20%);
+    }
+  }
+
+  &__icon {
+    user-select: none;
+    width: 30px;
+    height: 30px;
+    fill: #83dbd6;
+    opacity: 0.5;
+  }
+}
+.add-task__btn:hover .add-task__icon {
+  opacity: 1;
+}
