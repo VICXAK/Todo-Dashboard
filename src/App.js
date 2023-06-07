@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { updateTasks } from "./store/task-slice";
+
+import { sendTaskData, getTaskData } from "./store/task-slice";
 
 import Card from "./components/Card";
 
@@ -13,41 +14,22 @@ function App() {
   const status = useSelector((state) => state.status);
 
   const tasks = useSelector((state) => state.tasks);
-  console.log(tasks);
+  const isTaskChanged = useSelector((state) => state.isTaskChanged);
 
   useEffect(() => {
-    const getTasks = async () => {
-      const response = await fetch(
-        "https://todo-4337c-default-rtdb.firebaseio.com/todo.json"
-      );
-
-      const data = await response.json();
-
-      dispatch(updateTasks(data || []));
-    };
-
-    getTasks();
+    dispatch(getTaskData());
   }, [dispatch]);
 
   useEffect(() => {
-    const fetchTasks = async () => {
-      const response = await fetch(
-        "https://todo-4337c-default-rtdb.firebaseio.com/todo.json",
-        {
-          method: "PUT",
-          body: JSON.stringify(tasks),
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-    };
-
     if (initialRunning) {
       initialRunning = false;
       return;
     }
 
-    fetchTasks();
-  }, [tasks]);
+    if (isTaskChanged) {
+      dispatch(sendTaskData(tasks));
+    }
+  }, [dispatch, tasks, isTaskChanged]);
 
   return (
     <div className="container">
